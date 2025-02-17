@@ -10,18 +10,39 @@
         body 
 	{font-family: 'Times New Roman', serif;
 background: linear-gradient(145deg, #2c3e50, #000000);
-            margin: 30px;
+            margin: 20px;
 	color: #f1c40f; }
+ 
+h1 {
+    font-size: 25px; /* Ajusta el tamaño de la fuente */
+    color: #f1c40f; /* Cambia el color del texto */
+    text-align: center; /* Centra el texto */
+    font-family: 'Times New Roman', sans-serif; /* Cambia la fuente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega sombra al texto */
+}
 
-        h1 
-	{text-align: center;
-            color: #f1c40f;}
+h2 {
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    color: #f1c40f; /* Cambia el color del texto */
+    text-align: center; /* Centra el texto */
+    font-family: 'Times New Roman', sans-serif; /* Cambia la fuente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega sombra al texto */
+}
+
 
 
         table {width: 100%;
             border-collapse: collapse;
-            margin-top: 30px;
-            font-size: 11px;
+            margin-top: 8px;
+            font-size: 9px;
+	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.1);}
+
+
+
+        table {width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 9px;
 	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.1);}
 
 
@@ -29,7 +50,7 @@ background: linear-gradient(145deg, #2c3e50, #000000);
 		{border-collapse: collapse;}
 
         th, td 
-		{padding: 8px;
+		{padding: 4px;
             	text-align: left;}
 
         th {background: linear-gradient(145deg, #f1c40f, #e67e22);
@@ -57,21 +78,28 @@ background: linear-gradient(145deg, #2c3e50, #000000);
 
         .pendiente {
             background-color: #ff6600;
-            color: black;}
+            color: black;
+	font-size: 8px; }
+	
 
         .pagado {
             background-color: #00ff00;
-            color: black;}
+            color: black;
+		font-size: 8px;}
 
         .eliminar {
            color: red;
             background-color: transparent;
-            padding: 1px 5px;}
+            padding: 1px 4px;
+		font-size: 8px; }
 
         .abrir {
-            color: white;
-            background-color: #f1c40f;
-            padding: 1px 5px;}
+            color: black;
+            background-color: #00ff00;
+            padding: 1px 4px;
+		font-size: 8px; }
+
+
 
         button:hover {
             transform: translateY(-5px);
@@ -86,7 +114,7 @@ background: linear-gradient(145deg, #2c3e50, #000000);
         .carpeta-lista li {
             padding: 8px;
             background-color: #f4f4f4;
-            margin-bottom: 5px;
+            margin-bottom: 1px;
             border-radius: 4px;
             cursor: pointer; }
 
@@ -94,25 +122,55 @@ background: linear-gradient(145deg, #2c3e50, #000000);
             background-color: #ddd;}
 
         #guardar-carpeta {
-            margin-top: 20px;}
+            margin-top: 5px;
+		font-size: 12px; }
 
 
         .eliminar-carpeta {
             color: red;
             background-color: transparent;
-            padding: 1px 5px;}
+            padding: 1px 5px;
+		font-size: 8px;}
 
 
-        #nuevo-presupuesto-btn {
+ #agregar-gasto-btn {
             background: #222222;
-            padding: 5px 15px;
+            padding: 2px 8px;
             color: white;
             border: none;
             cursor: pointer;
 	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3), -8px -8px 10px rgba(255, 255, 255, 0.1);
             font-weight: bold;
             border-radius: 5px;
-	color: #f1c40f;}
+	color: #f1c40f;
+font-size: 9px;}
+
+
+ #guardar-presupuesto-btn {
+            background: #222222;
+            padding: 2px 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3), -8px -8px 10px rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            border-radius: 5px;
+	color: #f1c40f;
+font-size: 9px;}
+
+
+
+        #nuevo-presupuesto-btn {
+            background: #222222;
+            padding: 2px 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3), -8px -8px 10px rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            border-radius: 5px;
+	color: #f1c40f;
+font-size: 12px;}
 
         #nuevo-presupuesto-btn:hover {
             transform: translateY(-5px);
@@ -120,23 +178,24 @@ background: linear-gradient(145deg, #2c3e50, #000000);
   		background-color: #f1c40f;
   		color: #222222;}
 
+label {
+    font-size: 12px; /* Tamaño del texto del label */
+    color: #f1c40f;  /* Color del texto (opcional) */
+}
 
 input[type="number"], input[type="text"] {
   background: #222222;
   border: none;
-  border-radius: 12px;
-  padding: 6px 10px;
-  font-size: 0.9rem;  /* Tamaño más pequeño */
-  margin: 0.5px 0;
+  border-radius: 8px;
+  padding: 1px 4px;
+  font-size: 0.6rem;
+  margin: 0.9px 0;
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   width: 60%; /* Ajustamos el tamaño a un 80% de la pantalla */
   max-width: 300px; /* Tamaño máximo */
   color: #f1c40f;}
 
-input[type="number"]:focus, input[type="text"]:focus {
-  outline: none;
-  box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.6);}
 
 
     </style>
@@ -173,9 +232,9 @@ input[type="number"]:focus, input[type="text"]:focus {
         </tbody>
     </table>
 
-    <button onclick="agregarFila()">Agregar Gasto</button>
+    <button id="agregar-gasto-btn" onclick="agregarFila()">Agregar Gasto</button>
 
-    <h3></h3>
+    <h2></h2>
     <!-- Nueva tabla para los totales -->
     <table>
         <thead>
@@ -208,11 +267,11 @@ input[type="number"]:focus, input[type="text"]:focus {
     <div id="guardar-carpeta">
         <label for="nombre-carpeta">Presupuesto:</label>
         <input type="text" id="nombre-carpeta" placeholder="Agregar nombre">
-        <button onclick="guardarPresupuesto()">Guardar Presupuesto</button>
+        <button id="guardar-presupuesto-btn" onclick="guardarPresupuesto()">Guardar Presupuesto</button>
     </div>
 
     <!-- Tabla de presupuestos guardados -->
-    <h4>Presupuestos Guardados</h4>
+    <h2>Presupuestos Guardados</h2>
     <table id="tabla-carpetas">
         <thead>
             <tr>
