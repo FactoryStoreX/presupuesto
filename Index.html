@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto</title>
+    
+<style>
+        /* Estilo básico */
+        body 
+	{font-family: 'Times New Roman', serif;
+background: linear-gradient(145deg, #2c3e50, #000000);
+            margin: 20px;
+	color: #f1c40f; }
+ 
+h1 {
+    font-size: 25px; /* Ajusta el tamaño de la fuente */
+    color: #f1c40f; /* Cambia el color del texto */
+    text-align: center; /* Centra el texto */
+    font-family: 'Times New Roman', sans-serif; /* Cambia la fuente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega sombra al texto */
+}
+
+h2 {
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    color: #f1c40f; /* Cambia el color del texto */
+    text-align: center; /* Centra el texto */
+    font-family: 'Times New Roman', sans-serif; /* Cambia la fuente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega sombra al texto */
+}
+
+
+
+        table {width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 9px;
+	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.1);}
+
+
+
+        table {width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 9px;
+	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.1);}
+
+
+        table, th, td
+		{border-collapse: collapse;}
+
+        th, td 
+		{padding: 4px;
+            	text-align: left;}
+
+        th {background: linear-gradient(145deg, #f1c40f, #e67e22);
+            color: Black;}
+
+        th:nth-child(3), th:nth-child(4)
+		{text-align: center;}
+
+        td:nth-child(3), td:nth-child(4) 
+		{text-align: center;}
+
+        .total 
+		{font-weight: bold;}
+
+
+        button {
+            color: #f1c40f;
+            background-color: #222222;
+            padding: 1px 4px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold; }
+
+
+        .pendiente {
+            background-color: #ff6600;
+            color: black;
+	font-size: 8px; }
+	
+
+        .pagado {
+            background-color: #00ff00;
+            color: black;
+		font-size: 8px;}
+
+        .eliminar {
+           color: red;
+            background-color: transparent;
+            padding: 1px 4px;
+		font-size: 8px; }
+
+        .abrir {
+            color: black;
+            background-color: #00ff00;
+            padding: 1px 4px;
+		font-size: 8px; }
+
+
+
+        button:hover {
+            transform: translateY(-5px);
+	  	box-shadow: 12px 12px 18px rgba(0, 0, 0, 0.4), -12px -12px 18px rgba(255, 255, 255, 0.2);
+  		background-color: #f1c40f;
+  		color: #222222;}
+
+
+        .carpeta-lista {
+            margin-top: 20px;}
+
+        .carpeta-lista li {
+            padding: 8px;
+            background-color: #f4f4f4;
+            margin-bottom: 1px;
+            border-radius: 4px;
+            cursor: pointer; }
+
+        .carpeta-lista li:hover {
+            background-color: #ddd;}
+
+        #guardar-carpeta {
+            margin-top: 5px;
+		font-size: 12px; }
+
+
+        .eliminar-carpeta {
+            color: red;
+            background-color: transparent;
+            padding: 1px 5px;
+		font-size: 8px;}
+
+
+ #agregar-gasto-btn {
+            background: #222222;
+            padding: 2px 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3), -8px -8px 10px rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            border-radius: 5px;
+	color: #f1c40f;
+font-size: 9px;}
+
+
+ #guardar-presupuesto-btn {
+            background: #222222;
+            padding: 2px 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3), -8px -8px 10px rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            border-radius: 5px;
+	color: #f1c40f;
+font-size: 9px;}
+
+
+
+        #nuevo-presupuesto-btn {
+            background: #222222;
+            padding: 2px 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3), -8px -8px 10px rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            border-radius: 5px;
+	color: #f1c40f;
+font-size: 12px;}
+
+        #nuevo-presupuesto-btn:hover {
+            transform: translateY(-5px);
+	  	box-shadow: 12px 12px 18px rgba(0, 0, 0, 0.4), -12px -12px 18px rgba(255, 255, 255, 0.2);
+  		background-color: #f1c40f;
+  		color: #222222;}
+
+label {
+    font-size: 12px; /* Tamaño del texto del label */
+    color: #f1c40f;  /* Color del texto (opcional) */
+}
+
+input[type="number"], input[type="text"] {
+  background: #222222;
+  border: none;
+  border-radius: 8px;
+  padding: 1px 4px;
+  font-size: 0.6rem;
+  margin: 0.9px 0;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  width: 60%; /* Ajustamos el tamaño a un 80% de la pantalla */
+  max-width: 300px; /* Tamaño máximo */
+  color: #f1c40f;}
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Ejecución de Presupuesto</h1>
+
+    <!-- Botón para nuevo presupuesto -->
+    <button id="nuevo-presupuesto-btn" onclick="nuevoPresupuesto()">Nuevo Presupuesto</button>
+    <br><br>
+
+    <!-- Campo de Ingreso -->
+    <label for="ingresos">Ingresos Totales:</label>
+    <input type="number" id="ingresos" value="0" oninput="actualizarTotales()" aria-label="Ingresos Totales">
+    <br><br>
+
+    <table id="tabla-presupuesto">
+        <thead>
+            <tr>
+                <th>DESCRIPCION</th>
+                <th>IMPORTE</th>
+                <th>ESTADO</th>
+                <th>ACCION</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-body">
+            <!-- Línea vacía de gasto por defecto -->
+            <tr>
+                <td><input type="text" placeholder="Nuevo Gasto" aria-label="Descripción del gasto"></td>
+                <td><input type="number" value="0" oninput="actualizarTotales()" aria-label="Importe del gasto"></td>
+                <td><button class="pendiente" onclick="marcarPagado(this)" aria-label="Marcar como pendiente">Pendiente</button></td>
+                <td><button class="eliminar" onclick="eliminarFila(this)" aria-label="Eliminar gasto">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="agregar-gasto-btn" onclick="agregarFila()">Agregar Gasto</button>
+
+    <h2></h2>
+    <!-- Nueva tabla para los totales -->
+    <table>
+        <thead>
+            <tr>
+                <th>Resumen</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Total Pagado:</strong></td>
+                <td>Q<span id="total-pagado">0</span></td>
+            </tr>
+            <tr>
+                <td><strong>Pendiente de Pago:</strong></td>
+                <td>Q<span id="total-pendiente">0</span></td>
+            </tr>
+            <tr>
+                <td><strong>Saldo Actual:</strong></td>
+                <td>Q<span id="saldo">0</span></td>
+            </tr>
+            <tr>
+                <td><strong>Saldo Proyectado:</strong></td>
+                <td>Q<span id="saldo-proyectado">0</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Opciones para guardar el presupuesto en una carpeta -->
+    <div id="guardar-carpeta">
+        <label for="nombre-carpeta">Presupuesto:</label>
+        <input type="text" id="nombre-carpeta" placeholder="Agregar nombre">
+        <button id="guardar-presupuesto-btn" onclick="guardarPresupuesto()">Guardar Presupuesto</button>
+    </div>
+
+    <!-- Tabla de presupuestos guardados -->
+    <h2>Presupuestos Guardados</h2>
+    <table id="tabla-carpetas">
+        <thead>
+            <tr>
+                <th>Nombre del presupuesto</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody id="lista-carpetas">
+            <!-- Aquí se agregarán los presupuestos guardados -->
+        </tbody>
+    </table>
+
+    <script>
+        let debounceTimer;
+
+        // Función para actualizar los totales
+        function actualizarTotales() {
+            if (debounceTimer) {
+                clearTimeout(debounceTimer);
+            }
+            
+            debounceTimer = setTimeout(() => {
+                const filas = document.querySelectorAll('#tabla-presupuesto tbody tr');
+                let totalPendiente = 0;
+                let totalPagado = 0;
+
+                filas.forEach(fila => {
+                    const importe = parseFloat(fila.cells[1].querySelector('input').value);
+                    const estado = fila.cells[2].querySelector('button').classList.contains('pagado');
+
+                    if (estado) {
+                        totalPagado += importe;
+                    } else {
+                        totalPendiente += importe;
+                    }
+                });
+
+                const ingresos = parseFloat(document.getElementById('ingresos').value);
+
+                document.getElementById('total-pagado').textContent = totalPagado;
+                document.getElementById('total-pendiente').textContent = totalPendiente;
+
+                const saldo = ingresos - totalPagado;
+                document.getElementById('saldo').textContent = saldo;
+
+                const saldoProyectado = saldo - totalPendiente;
+                document.getElementById('saldo-proyectado').textContent = saldoProyectado;
+            }, 300);
+        }
+
+        // Función para agregar una nueva fila
+        function agregarFila() {
+            const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
+            const nuevaFila = tabla.insertRow();
+            nuevaFila.innerHTML = `
+                <td><input type="text" placeholder="Nuevo Gasto" aria-label="Descripción del gasto"></td>
+                <td><input type="number" value="0" oninput="actualizarTotales()" aria-label="Importe del gasto"></td>
+                <td><button class="pendiente" onclick="marcarPagado(this)" aria-label="Marcar como pendiente">Pendiente</button></td>
+                <td><button class="eliminar" onclick="eliminarFila(this)" aria-label="Eliminar gasto">Eliminar</button></td>
+            `;
+        }
+
+        // Función para eliminar una fila
+        function eliminarFila(boton) {
+            const fila = boton.closest('tr');
+            fila.remove();
+            actualizarTotales();
+        }
+
+        // Función para marcar un gasto como pagado
+        function marcarPagado(boton) {
+            const fila = boton.closest('tr');
+            boton.classList.toggle('pagado');
+            
+            if (boton.classList.contains('pagado')) {
+                boton.textContent = "Pagado";
+                boton.classList.remove('pendiente');
+                boton.classList.add('pagado');
+            } else {
+                boton.textContent = "Pendiente";
+                boton.classList.remove('pagado');
+                boton.classList.add('pendiente');
+            }
+
+            actualizarTotales();
+        }
+
+        // Función para guardar el presupuesto en una carpeta
+        function guardarPresupuesto() {
+            const nombreCarpeta = document.getElementById('nombre-carpeta').value.trim();
+            if (!nombreCarpeta) {
+                alert("Por favor, ingresa un nombre para la carpeta.");
+                return;
+            }
+
+            const ingresos = parseFloat(document.getElementById('ingresos').value);
+            if (isNaN(ingresos) || ingresos < 0) {
+                alert("Por favor, ingresa un monto válido para los ingresos.");
+                return;
+            }
+
+            const gastos = [];
+            const filas = document.querySelectorAll('#tabla-presupuesto tbody tr');
+
+            filas.forEach(fila => {
+                const descripcion = fila.cells[0].querySelector('input').value;
+                const importe = parseFloat(fila.cells[1].querySelector('input').value);
+                const estado = fila.cells[2].querySelector('button').classList.contains('pagado') ? "pagado" : "pendiente";
+                gastos.push({ descripcion, importe, estado });
+            });
+
+            const presupuesto = { ingresos, gastos };
+            localStorage.setItem(nombreCarpeta, JSON.stringify(presupuesto));
+
+            alert("Presupuesto guardado en la carpeta: " + nombreCarpeta);
+
+            // Limpiar los datos del formulario y la tabla después de guardar
+            document.getElementById('nombre-carpeta').value = '';
+            document.getElementById('ingresos').value = 0;
+            const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
+            tabla.innerHTML = '';
+            agregarFila();
+            actualizarTotales();
+
+            cargarPresupuestosGuardados();
+        }
+
+        // Función para cargar los presupuestos guardados
+        function cargarPresupuestosGuardados() {
+            const listaCarpetas = document.getElementById('lista-carpetas');
+            listaCarpetas.innerHTML = ''; // Limpiar lista antes de cargar
+
+            for (let i = 0; i < localStorage.length; i++) {
+                const nombreCarpeta = localStorage.key(i);
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${nombreCarpeta}</td>
+                    <td>
+                        <button class="abrir" onclick="abrirCarpeta('${nombreCarpeta}')">Abrir</button>
+                        <button class="eliminar-carpeta" onclick="eliminarCarpeta('${nombreCarpeta}')">Eliminar</button>
+                    </td>
+                `;
+                listaCarpetas.appendChild(fila);
+            }
+        }
+
+        // Función para abrir una carpeta y cargar su presupuesto
+        function abrirCarpeta(carpeta) {
+            const presupuesto = JSON.parse(localStorage.getItem(carpeta));
+            if (!presupuesto) return;
+
+            document.getElementById('ingresos').value = presupuesto.ingresos;
+            const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
+            tabla.innerHTML = ''; // Limpiar la tabla
+
+            presupuesto.gastos.forEach(gasto => {
+                const nuevaFila = tabla.insertRow();
+                nuevaFila.innerHTML = `
+                    <td><input type="text" value="${gasto.descripcion}" aria-label="Descripción del gasto"></td>
+                    <td><input type="number" value="${gasto.importe}" oninput="actualizarTotales()" aria-label="Importe del gasto"></td>
+                    <td><button class="${gasto.estado}" onclick="marcarPagado(this)" aria-label="Marcar como ${gasto.estado}">${gasto.estado === 'pagado' ? 'Pagado' : 'Pendiente'}</button></td>
+                    <td><button class="eliminar" onclick="eliminarFila(this)" aria-label="Eliminar gasto">Eliminar</button></td>
+                `;
+            });
+
+            actualizarTotales();
+        }
+
+        // Función para eliminar una carpeta
+        function eliminarCarpeta(carpeta) {
+            localStorage.removeItem(carpeta);
+            alert("Carpeta eliminada correctamente.");
+            cargarPresupuestosGuardados();
+        }
+
+        // Cargar los presupuestos guardados cuando la página se carga
+        cargarPresupuestosGuardados();
+
+        // Función para nuevo presupuesto (limpiar la tabla y reiniciar los valores)
+        function nuevoPresupuesto() {
+            document.getElementById('ingresos').value = 0;
+            const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
+            tabla.innerHTML = '';
+            agregarFila();
+            actualizarTotales();
+        }
+    </script>
+</body>
+</html>
