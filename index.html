@@ -455,11 +455,20 @@ input[type="number"], input[type="text"] {
             actualizarTotales();
         }
 
-        // Función para eliminar una carpeta
-        function eliminarCarpeta(carpeta) {
-            localStorage.removeItem(carpeta);
-            alert("Carpeta eliminada correctamente.");
-            cargarPresupuestosGuardados();
+// Función para eliminar una carpeta
+function eliminarCarpeta(carpeta) {
+    // Pedir confirmación antes de eliminar
+    const confirmacion = confirm("¿Eliminar Carpeta?");
+    
+    if (confirmacion) {
+        // Si el usuario confirma, eliminar la carpeta
+        localStorage.removeItem(carpeta);
+        alert("Eliminada");
+        cargarPresupuestosGuardados();  // Actualiza la lista de presupuestos guardados
+    } else {
+        // Si el usuario cancela, no hacer nada
+        alert("No eliminada");
+    }
         }
 
         // Cargar los presupuestos guardados cuando la página se carga
