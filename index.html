@@ -140,7 +140,7 @@ h2 {
 
 
 	#tabla-presupuesto td:nth-child(2) {
-    	width: 70px; /* Puedes ajustar el valor según lo que necesites */
+    	width: 70px; /* IMPORTE */
 		}
 
 
@@ -331,7 +331,6 @@ input[type="number"], input[type="text"] {
 
                 const saldo = ingresos - totalPagado;
                 document.getElementById('saldo').textContent = saldo.toFixed(2);
-
                 const saldoProyectado = saldo - totalPendiente;
                 document.getElementById('saldo-proyectado').textContent = saldoProyectado;
             }, 300);
