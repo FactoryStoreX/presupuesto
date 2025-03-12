@@ -330,7 +330,7 @@ input[type="number"], input[type="text"] {
                 document.getElementById('total-pendiente').textContent = totalPendiente;
 
                 const saldo = ingresos - totalPagado;
-                document.getElementById('saldo').textContent = saldo;
+                document.getElementById('saldo').textContent = saldo.toFixed(2);
 
                 const saldoProyectado = saldo - totalPendiente;
                 document.getElementById('saldo-proyectado').textContent = saldoProyectado;
