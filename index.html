@@ -6,7 +6,6 @@
     <title>Presupuesto</title>
     
 <style>
-        /* Estilo básico */
         body 
 	{font-family: 'Times New Roman', serif;
 background: linear-gradient(145deg, #2c3e50, #000000);
@@ -14,19 +13,19 @@ background: linear-gradient(145deg, #2c3e50, #000000);
 	color: #f1c40f; }
  
 h1 {
-    font-size: 25px; /* Ajusta el tamaño de la fuente */
-    color: #f1c40f; /* Cambia el color del texto */
-    text-align: center; /* Centra el texto */
-    font-family: 'Times New Roman', sans-serif; /* Cambia la fuente */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega sombra al texto */
+    font-size: 25px; 
+    color: #f1c40f; 
+    text-align: center; 
+    font-family: 'Times New Roman', sans-serif; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
 }
 
 h2 {
-    font-size: 14px; /* Ajusta el tamaño de la fuente */
-    color: #f1c40f; /* Cambia el color del texto */
-    text-align: center; /* Centra el texto */
-    font-family: 'Times New Roman', sans-serif; /* Cambia la fuente */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega sombra al texto */
+    font-size: 14px; 
+    color: #f1c40f; 
+    text-align: center; 
+    font-family: 'Times New Roman', sans-serif; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
 }
 
 
@@ -134,13 +133,13 @@ h2 {
 
 
 #ingresos {
-    width: 15%; /* Ajusta el tamaño del campo de ingresos (50% del contenedor) */
-    font-size: 0.6rem; /* Ajusta el tamaño de la fuente */
+    width: 15%; 
+    font-size: 0.6rem; 
 }
 
 
 	#tabla-presupuesto td:nth-child(2) {
-    	width: 70px; /* IMPORTE */
+    	width: 70px; 
 		}
 
 
@@ -197,8 +196,8 @@ font-size: 12px;}
   		color: #222222;}
 
 label {
-    font-size: 12px; /* Tamaño del texto del label */
-    color: #f1c40f;  /* Color del texto (opcional) */
+    font-size: 12px; 
+    color: #f1c40f; 
 }
 
 input[type="number"], input[type="text"] {
@@ -227,11 +226,11 @@ input[type="number"], input[type="text"] {
 <body>
     <h1>Ejecución de Presupuesto</h1>
 
-    <!-- Botón para nuevo presupuesto -->
+  
     <button id="nuevo-presupuesto-btn" onclick="nuevoPresupuesto()">Nuevo Presupuesto</button>
     <br><br>
 
-    <!-- Campo de Ingreso -->
+  
     <label for="ingresos">Ingresos Totales:</label>
     <input type="number" id="ingresos" value="0" oninput="actualizarTotales()" aria-label="Ingresos Totales">
     <br><br>
@@ -246,7 +245,7 @@ input[type="number"], input[type="text"] {
             </tr>
         </thead>
         <tbody id="tabla-body">
-            <!-- Línea vacía de gasto por defecto -->
+          
             <tr>
                 <td><input type="text" placeholder="Nuevo Gasto" aria-label="Descripción del gasto"></td>
                 <td><input type="number" value="0" oninput="actualizarTotales()" aria-label="Importe del gasto"></td>
@@ -259,7 +258,6 @@ input[type="number"], input[type="text"] {
     <button id="agregar-gasto-btn" onclick="agregarFila()">Agregar Gasto</button>
 
     <h2></h2>
-    <!-- Nueva tabla para los totales -->
     <table>
         <thead>
             <tr>
@@ -284,14 +282,11 @@ input[type="number"], input[type="text"] {
         </tbody>
     </table>
 
-    <!-- Opciones para guardar el presupuesto en una carpeta -->
     <div id="guardar-carpeta">
         <label for="nombre-carpeta">Presupuesto:</label>
         <input type="text" id="nombre-carpeta" placeholder="Agregar nombre">
         <button id="guardar-presupuesto-btn" onclick="guardarPresupuesto()">Guardar Presupuesto</button>
     </div>
-
-    <!-- Tabla de presupuestos guardados -->
     <h2>Presupuestos Guardados</h2>
     <table id="tabla-carpetas">
         <thead>
@@ -301,14 +296,11 @@ input[type="number"], input[type="text"] {
             </tr>
         </thead>
         <tbody id="lista-carpetas">
-            <!-- Aquí se agregarán los presupuestos guardados -->
         </tbody>
     </table>
 
     <script>
         let debounceTimer;
-
-        // Función para actualizar los totales
         function actualizarTotales() {
             if (debounceTimer) {
                 clearTimeout(debounceTimer);
@@ -342,7 +334,6 @@ input[type="number"], input[type="text"] {
             }, 300);
         }
 
-        // Función para agregar una nueva fila
         function agregarFila() {
             const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
             const nuevaFila = tabla.insertRow();
@@ -354,14 +345,12 @@ input[type="number"], input[type="text"] {
             `;
         }
 
-        // Función para eliminar una fila
         function eliminarFila(boton) {
             const fila = boton.closest('tr');
             fila.remove();
             actualizarTotales();
         }
 
-        // Función para marcar un gasto como pagado
         function marcarPagado(boton) {
             const fila = boton.closest('tr');
             boton.classList.toggle('pagado');
@@ -379,7 +368,6 @@ input[type="number"], input[type="text"] {
             actualizarTotales();
         }
 
-        // Función para guardar el presupuesto en una carpeta
         function guardarPresupuesto() {
             const nombreCarpeta = document.getElementById('nombre-carpeta').value.trim();
             if (!nombreCarpeta) {
@@ -408,7 +396,6 @@ input[type="number"], input[type="text"] {
 
             alert("Presupuesto guardado en la carpeta: " + nombreCarpeta);
 
-            // Limpiar los datos del formulario y la tabla después de guardar
             document.getElementById('nombre-carpeta').value = '';
             document.getElementById('ingresos').value = 0;
             const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
@@ -419,10 +406,9 @@ input[type="number"], input[type="text"] {
             cargarPresupuestosGuardados();
         }
 
-        // Función para cargar los presupuestos guardados
         function cargarPresupuestosGuardados() {
             const listaCarpetas = document.getElementById('lista-carpetas');
-            listaCarpetas.innerHTML = ''; // Limpiar lista antes de cargar
+            listaCarpetas.innerHTML = ''; 
 
             for (let i = 0; i < localStorage.length; i++) {
                 const nombreCarpeta = localStorage.key(i);
@@ -438,14 +424,13 @@ input[type="number"], input[type="text"] {
             }
         }
 
-        // Función para abrir una carpeta y cargar su presupuesto
         function abrirCarpeta(carpeta) {
             const presupuesto = JSON.parse(localStorage.getItem(carpeta));
             if (!presupuesto) return;
 
             document.getElementById('ingresos').value = presupuesto.ingresos;
             const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
-            tabla.innerHTML = ''; // Limpiar la tabla
+            tabla.innerHTML = ''; 
 
             presupuesto.gastos.forEach(gasto => {
                 const nuevaFila = tabla.insertRow();
@@ -460,26 +445,21 @@ input[type="number"], input[type="text"] {
             actualizarTotales();
         }
 
-// Función para eliminar una carpeta
 function eliminarCarpeta(carpeta) {
-    // Pedir confirmación antes de eliminar
     const confirmacion = confirm("¿Eliminar Carpeta?");
     
     if (confirmacion) {
-        // Si el usuario confirma, eliminar la carpeta
         localStorage.removeItem(carpeta);
         alert("Eliminada");
-        cargarPresupuestosGuardados();  // Actualiza la lista de presupuestos guardados
+        cargarPresupuestosGuardados();
     } else {
-        // Si el usuario cancela, no hacer nada
+
         alert("No eliminada");
     }
         }
 
-        // Cargar los presupuestos guardados cuando la página se carga
         cargarPresupuestosGuardados();
 
-        // Función para nuevo presupuesto (limpiar la tabla y reiniciar los valores)
         function nuevoPresupuesto() {
             document.getElementById('ingresos').value = 0;
             const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
