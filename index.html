@@ -210,13 +210,19 @@ input[type="number"], input[type="text"] {
   margin: 0.9px 0;
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), -8px -8px 15px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  width: 90%; /* Ajustamos el tamaño a un 80% de la pantalla */
-  max-width: 500px; /* Tamaño máximo */
+  width: 90%;
+  max-width: 500px;
   color: #f1c40f;}
 
-
+  footer {
+        text-align: right;
+        color: #00ff00;
+        font-size: 12px;
+        margin-top: 20px;
+        padding-right: 10px;}
 
     </style>
+
 </head>
 <body>
     <h1>Ejecución de Presupuesto</h1>
@@ -479,8 +485,12 @@ function eliminarCarpeta(carpeta) {
             const tabla = document.getElementById('tabla-presupuesto').getElementsByTagName('tbody')[0];
             tabla.innerHTML = '';
             agregarFila();
-            actualizarTotales();
-        }
+            actualizarTotales();}
+
     </script>
+    <footer>
+        <p>&copy; Marzo 2025 Fco Sion </p>
+    </footer>
+
 </body>
 </html>
